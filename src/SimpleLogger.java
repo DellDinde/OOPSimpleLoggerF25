@@ -1,5 +1,14 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class SimpleLogger {
+
+    private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     public void logThis(String pMessage){
-        System.out.printf(pMessage);
+        String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT));
+        String logEntry = String.format("[%s] %s", timeStamp, pMessage);
+        System.out.printf(logEntry);
     }
 }
